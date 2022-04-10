@@ -17,12 +17,14 @@ class Plotter(ttk.Frame):
         self.run_button = tk.Button(self.menu, text="RUN", width=10,
                                     font=tk.font.Font(size=15, family="Calibri"),
                                     command=self.update_and_run)
-        self.run_button.grid(column=1, row=6, pady=10)
+        self.run_button.grid(column=1, row=7, pady=10)
 
         self.ch_names = channel_names
         self.sim = simulator
         self.datalim = datalimit
-        self.raw, self.proc = self.draw_plots(simulator, chan=channel_names[0], end=datalimit)
+
+        self.raw = self.draw_raw(simulator, chan=channel_names[0], end=datalimit)
+        self.proc = self.draw_proc(simulator, chan=channel_names[0], end=datalimit)
 
     def configure_gui(self):
         self.master.title("Processing Plotter")
@@ -34,17 +36,20 @@ class Plotter(ttk.Frame):
         self.main_frame.rowconfigure(0, weight=1)
         self.main_frame.rowconfigure(1, weight=1)
 
-    def draw_plots(self, simulator, end, chan, start=0.0, lpass=20, hpass=100):
+    def draw_raw(self, simulator, end, chan, start=0.0):
         raw = EmbeddedPlot(self.main_frame, simulator.plot_raw(start, end, channel=chan))
         raw.grid(column=0, row=0)
         raw.plot()
 
-        proc_fig = simulator.plot_processed(start, end, channel=chan, lpass=lpass, hpass=hpass)
+        return raw
+
+    def draw_proc(self, simulator, end, chan, start=0.0, lpass=15, hpass=30, eog=False):
+        proc_fig = simulator.plot_processed(start, end, channel=chan, lpass=lpass, hpass=hpass, eog=eog)
         proc = EmbeddedPlot(self.main_frame, proc_fig)
         proc.grid(column=0, row=1)
         proc.plot()
 
-        return raw, proc
+        return proc
 
     def update_and_run(self):
         self.raw.clear()
@@ -55,9 +60,15 @@ class Plotter(ttk.Frame):
         start = float(self.menu.st_ent.get())
         end = float(self.menu.end_ent.get())
         channel = self.menu.menuvar.get()
+        eog = self.menu.check_var.get()
 
-        self.raw, self.proc = self.draw_plots(self.sim, start=start, end=end, lpass=low, hpass=high,
-                                              chan=channel)
+        if not low:
+            low = None
+        if not high:
+            high = None
+
+        self.raw = self.draw_raw(self.sim, start=start, end=end, chan=channel)
+        self.proc = self.draw_proc(self.sim, start=start, end=end, lpass=low, hpass=high, chan=channel, eog=eog)
 
 
 class EmbeddedPlot(tk.Frame):
@@ -97,8 +108,12 @@ class ParamMenu(tk.Frame):
         self.end_ent = ttk.Entry(self, font=self.menu_font, width=5, textvariable=tk.StringVar())
         self.end_ent.insert(0, str(maxi))
 
+        self.check_var = tk.IntVar()
+        self.blink_check = ttk.Checkbutton(self, variable=self.check_var, text="Detect EOG events")
+
         self.menuvar = tk.StringVar()
         self.ch_select = ttk.OptionMenu(self, self.menuvar, c_names[0], *c_names)
+
         self.create_menu()
 
     def create_menu(self):
@@ -113,11 +128,11 @@ class ParamMenu(tk.Frame):
         ch_label.grid(column=1, row=1, sticky='w', pady=yspace)
 
         self.lpass.grid(column=1, row=2, sticky='e')
-        lplabel = ttk.Label(self, font=self.menu_font, text="Low Pass Frequency: ", background="white")
+        lplabel = ttk.Label(self, font=self.menu_font, text="Frequency Min: ", background="white")
         lplabel.grid(column=1, row=2, sticky='w', pady=yspace)
 
         self.hpass.grid(column=1, row=3, sticky='e')
-        hplabel = ttk.Label(self, font=self.menu_font, text="High Pass Frequency: ", background="white")
+        hplabel = ttk.Label(self, font=self.menu_font, text="Frequency Max: ", background="white")
         hplabel.grid(column=1, row=3, sticky='w', pady=yspace)
 
         self.st_ent.grid(column=1, row=4, sticky='e')
@@ -127,6 +142,8 @@ class ParamMenu(tk.Frame):
         self.end_ent.grid(column=1, row=5, sticky='e')
         stlabel = ttk.Label(self, font=self.menu_font, text="End Time: ", background="white")
         stlabel.grid(column=1, row=5, sticky='w', pady=yspace)
+
+        self.blink_check.grid(column=1, row=6)
 
         col_num = 3
         row_num = 6

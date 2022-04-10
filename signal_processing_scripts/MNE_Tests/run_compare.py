@@ -21,6 +21,7 @@ if not inp:
     sim = Simulator(sample_freq, 2, data, chan_names)
     app = Plotter(sim, channel_names=chan_names, datalimit=len(data[0, :])-1, master=root)
     app.mainloop()
+
 else:
     pathway = "Src\\Subject1_1D.mat"
     cwd = path.dirname(path.abspath(__file__))
