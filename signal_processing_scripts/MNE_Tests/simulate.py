@@ -1,6 +1,6 @@
 import mne
 import matplotlib.pyplot as plt
-import pyserial
+import serial
 
 
 class Simulator:
@@ -81,8 +81,8 @@ class Stream:
         self.nchans = nchans
         self.ch_names = ch_names
         self.mne_info = mne.create_info(self.ch_names, self.srate, 'eeg')
-        self.ch_dct = dict(zip(ch_names, [x for x in range(n_channels)]))  # Converts channel names to indices
-        self.serial = pyserial.Serial(port, baudrate)
+        self.ch_dct = dict(zip(ch_names, [x for x in range(nchans)]))  # Converts channel names to indices
+        self.serial = serial.Serial(port, baudrate)
 
         self.initialize_cyton()
 
@@ -93,9 +93,9 @@ class Stream:
         self.serial.write('b')
 
     def get_sample(self):
-        sample = self.serial.read_until(STOP_BYTE)
+        sample = self.serial.read_until(Stream.STOP_BYTE)
         print(f"SAMPLE TYPE: {type(sample)} (should be ByteArray)")
-        chan_list_int = [int.from_bytes(data[start: start+2]) for start in range(3, 25, 3)]
+        chan_list_int = [int.from_bytes(sample[start: start+2], 'little') for start in range(3, 25, 3)]
         labels = [chan for chan in range(1, 9)]
 
         return dict(zip(labels, chan_list_int))
