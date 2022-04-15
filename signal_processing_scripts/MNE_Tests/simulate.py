@@ -1,5 +1,6 @@
 import mne
 import matplotlib.pyplot as plt
+import pyserial
 
 
 class Simulator:
@@ -73,13 +74,28 @@ class Simulator:
 
 
 class Stream:
-    def __init__(self, srate, nchans, ch_names):
+    STOP_BYTE = 0xC0
+
+    def __init__(self, srate, ch_names, port, nchans=8, baudrate=115200):
         self.srate = srate
         self.nchans = nchans
         self.ch_names = ch_names
         self.mne_info = mne.create_info(self.ch_names, self.srate, 'eeg')
         self.ch_dct = dict(zip(ch_names, [x for x in range(n_channels)]))  # Converts channel names to indices
+        self.serial = pyserial.Serial(port, baudrate)
 
-    def get_chunk(self, samples):
-        """Returns the latest n samples of data"""
-        return
+        self.initialize_cyton()
+
+    def initialize_cyton(self):
+        self.serial.write('v')  # Resets Cyton board
+
+    def start_stream(self):
+        self.serial.write('b')
+
+    def get_sample(self):
+        sample = self.serial.read_until(STOP_BYTE)
+        print(f"SAMPLE TYPE: {type(sample)} (should be ByteArray)")
+        chan_list_int = [int.from_bytes(data[start: start+2]) for start in range(3, 25, 3)]
+        labels = [chan for chan in range(1, 9)]
+
+        return dict(zip(labels, chan_list_int))

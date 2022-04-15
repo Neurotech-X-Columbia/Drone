@@ -109,7 +109,8 @@ class ParamMenu(tk.Frame):
         self.end_ent.insert(0, str(maxi))
 
         self.check_var = tk.IntVar()
-        self.blink_check = ttk.Checkbutton(self, variable=self.check_var, text="Detect EOG events")
+        self.blink_check = tk.Checkbutton(self, font=self.menu_font, variable=self.check_var, text="Detect EOG events",
+                                          background="white")
 
         self.menuvar = tk.StringVar()
         self.ch_select = ttk.OptionMenu(self, self.menuvar, c_names[0], *c_names)
