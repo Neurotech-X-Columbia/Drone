@@ -74,7 +74,7 @@ class Simulator:
 
 
 class Stream:
-    STOP_BYTE = 0xC0
+    STOP_BYTE = b'0xCA'
 
     def __init__(self, srate, ch_names, port, nchans=8, baudrate=115200):
         self.srate = srate
@@ -87,14 +87,24 @@ class Stream:
         self.initialize_cyton()
 
     def initialize_cyton(self):
-        self.serial.write('v')  # Resets Cyton board
+        print("Resetting Cyton...")
+        self.serial.write(b'v')  # Resets Cyton board
 
     def start_stream(self):
-        self.serial.write('b')
+        print("Starting data stream...")
+        self.serial.write(b'b')  # Starts data stream
+
+    def stop_stream(self):
+        print("Stopping data stream...")
+        self.serial.write(b's')
+
+    def close_port(self):
+        self.serial.close()
 
     def get_sample(self):
-        sample = self.serial.read_until(Stream.STOP_BYTE)
-        print(f"SAMPLE TYPE: {type(sample)} (should be ByteArray)")
+        """Extracts the most recent sample from the serial port"""
+        sample = self.serial.read(33)
+        # sample = self.serial.read_until(Stream.STOP_BYTE)
         chan_list_int = [int.from_bytes(sample[start: start+2], 'little') for start in range(3, 25, 3)]
         labels = [chan for chan in range(1, 9)]
 

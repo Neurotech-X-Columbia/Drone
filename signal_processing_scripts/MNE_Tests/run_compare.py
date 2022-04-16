@@ -3,8 +3,8 @@ from os import path
 import tkinter as tk
 import scipy.io
 
-from simulate import Simulator
-from visualize import Plotter
+from DataClasses import Simulator
+from VisualClasses import Plotter
 
 inp = int(input("Blink dataset (0) or movement dataset (1): "))
 root = tk.Tk()
