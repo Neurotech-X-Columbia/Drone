@@ -74,7 +74,7 @@ class Simulator:
 
 
 class Stream:
-    STOP_BYTE = b'0xCA'
+    STOP_BYTE = b'0xC0'
 
     def __init__(self, srate, ch_names, port, nchans=8, baudrate=115200):
         self.srate = srate
@@ -104,7 +104,6 @@ class Stream:
     def get_sample(self):
         """Extracts the most recent sample from the serial port"""
         sample = self.serial.read(33)
-        # sample = self.serial.read_until(Stream.STOP_BYTE)
         chan_list_int = [int.from_bytes(sample[start: start+2], 'little') for start in range(3, 25, 3)]
         labels = [chan for chan in range(1, 9)]
 
