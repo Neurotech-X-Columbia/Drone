@@ -1,11 +1,12 @@
-import mne
 import matplotlib.pyplot as plt
+import mne
+import numpy as np
 import serial
 
 
-class Simulator:
+class Container:
     def __init__(self, sample_rate, n_channels, data, ch_names, lpass=None, hpass=None):
-        """Simulator initialized with input parameters and processing parameters"""
+        """Container initialized with input parameters and processing parameters"""
         self.srate = sample_rate  # Sampling rate in Hz
         self.nchans = n_channels  # Number of channels
         self.ch_names = ch_names  # Names of channels
@@ -74,7 +75,8 @@ class Simulator:
 
 
 class Stream:
-    STOP_BYTE = b'0xC0'
+    STOP_BYTE = bytes.fromhex('C0')
+    SCALE_FACTOR = .02235  # microVolts per count
 
     def __init__(self, srate, ch_names, port, nchans=8, baudrate=115200):
         self.srate = srate
@@ -101,10 +103,46 @@ class Stream:
     def close_port(self):
         self.serial.close()
 
-    def get_sample(self):
+    def get_sample(self, as_dict=True):
         """Extracts the most recent sample from the serial port"""
-        sample = self.serial.read(33)
-        chan_list_int = [int.from_bytes(sample[start: start+2], 'little') for start in range(3, 25, 3)]
-        labels = [chan for chan in range(1, 9)]
+        sample = self.serial.read_until(Stream.STOP_BYTE, size=32)
 
-        return dict(zip(labels, chan_list_int))
+        # 'big' = MSB first
+        sample_num = int.from_bytes(sample[0], 'big')
+
+        if sample_num <= 1:  # Invalid sample due to Daisy/Cyton averaging technique
+            return None
+
+        raw_counts = [int.from_bytes(sample[start: start+2], 'big', signed=True) for start in range(3, 25, 3)]
+        aux_data = [int.from_bytes(sample[start], 'big', signed=True) for start in range(27, 33)]
+        microVolts = [raw * Stream.SCALE_FACTOR for raw in raw_counts]
+
+        if as_dict:
+            if sample_num % 2 == 0:
+                channels = self.ch_names[7:]  # Daisy data (last 8 channels)
+            else:
+                channels = self.ch_names[:8]  # Cyton data (first 8 channels)
+            return dict(zip(channels, microVolts))
+
+        else:
+            return microVolts
+
+    def collect(self, num_samples=None, time=None, write=False, fname=None):
+        if not (num_samples or time):
+            print("Specify either a number of samples to collect or a duration in seconds.")
+            return
+
+        if time:
+            data = np.zeros(shape=(self.nchans, num_samples))
+        else:
+            data = np.zeros(shape=(self.nchans, int(time*self.srate)))
+
+        for sample in range(1, num_samples):
+            data[sample, :] = self.get_sample(as_dict=False)
+
+        if fname and write:
+            np.savetxt(f"Recorded\\{fname}", data)
+        elif write:
+            np.savetxt("Recorded\\trial", data)
+
+        return data

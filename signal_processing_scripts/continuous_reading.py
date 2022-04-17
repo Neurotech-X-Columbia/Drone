@@ -1,16 +1,20 @@
-from MNE_Tests.DataClasses import Stream
+from MNE_Tests.DataClasses import Stream, Container
+from MNE_Tests.VisualClasses import Plotter
+import tkinter as tk
 
 sample_freq = 250
-chan_names = ['FP1', 'FP2', 'F3', 'F4', 'C3', 'C4', 'P3', 'P4', 'O1', 'O2',
-              'F7', 'F8', 'T3', 'T4', 'T5', 'T6', 'FZ', 'CZ', 'PZ']
+chan_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve',
+              'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen']
 
 stream = Stream(srate=sample_freq, ch_names=chan_names, port='COM4')
 stream.start_stream()
 
-while True:
-    try:
-        print(stream.get_sample())
-    except KeyboardInterrupt:
-        stream.stop_stream()
-        stream.close_port()
-        break
+data = stream.collect(time=10)
+
+stream.stop_stream()
+stream.close_port()
+
+root = tk.Tk()
+con = Container(sample_freq, 2, data, chan_names)
+app = Plotter(con, channel_names=chan_names, datalimit=len(data[0, :])-1, master=root)
+app.mainloop()
