@@ -127,18 +127,20 @@ class Stream:
         else:
             return microVolts
 
-    def collect(self, num_samples=None, time=None, write=False, fname=None):
-        if not (num_samples or time):
+    def collect(self, num_samples=None, duration=None, write=False, fname=None):
+        """Collects and writes given number of samples or duration"""
+        if not (num_samples or duration):
             print("Specify either a number of samples to collect or a duration in seconds.")
             return
 
-        if time:
+        if duration:
             data = np.zeros(shape=(self.nchans, num_samples))
         else:
-            data = np.zeros(shape=(self.nchans, int(time*self.srate)))
+            data = np.zeros(shape=(self.nchans, int(duration*self.srate)))
 
-        for sample in range(1, num_samples):
-            data[sample, :] = self.get_sample(as_dict=False)
+        for sample in range(0, num_samples):
+            if entry := self.get_sample(as_dict=False):
+                data[sample, :] = entry
 
         if fname and write:
             np.savetxt(f"Recorded\\{fname}", data)
@@ -146,3 +148,7 @@ class Stream:
             np.savetxt("Recorded\\trial", data)
 
         return data
+
+    def __exit__(self):
+        self.stop_stream()
+        self.close_port()
