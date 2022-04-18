@@ -89,11 +89,11 @@ class Stream:
         self.serial = serial.Serial(port, baudrate)
 
         self.initialize_cyton()
-        time.sleep(3)
 
     def initialize_cyton(self):
         print("Resetting Cyton...")
         self.serial.write(b'v')  # Resets Cyton board
+        time.sleep(1)
 
     def start_stream(self):
         print("Starting data stream...")
@@ -113,7 +113,7 @@ class Stream:
         # 'big' = MSB first
         sample_num = int.from_bytes(sample[1:2], 'big')
 
-        if sample_num <= 1:  # Invalid sample due to Daisy/Cyton averaging technique
+        if sample_num == 0 or len(sample) != 33:  # First sample invalid due to Daisy/Cyton averaging technique
             return None
 
         raw_counts = [int.from_bytes(sample[start: start+3], 'big', signed=True) for start in range(3, 25, 3)]
@@ -147,15 +147,31 @@ class Stream:
             print(f"Collecting {num_samples} samples of data.")
             data = np.zeros(shape=(self.nchans, int(duration*self.srate)))
 
-        for sample in range(num_samples):
+        # Sample 0: invalid
+        # Odd samples: Average(Cyton[x], Cyton[x-1])
+        # Even samples: Average(Daisy[x], Cyton[x-1])
+
+        sample = 0
+        while sample != num_samples:
             if entry := self.get_sample(as_dict=False):
-                if entry[0] % 2 == 0:  # Daisy data
-                    data[8:, sample] = entry[1]
-                    data[:8, sample] = data[:8, entry[0]-1]
-                else:  # Cyton data
+                if sample == 1:  # Cyton
                     data[:8, sample] = entry[1]
-                    data[8:, sample] = data[8:, entry[0]-1]
+                elif sample == 2:  # Daisy
+                    data[8:, sample] = data[8:, 1] = entry[1]
+                    data[:8, sample] = data[:8, 1]
+                elif sample % 2 == 1:
+                    data[:8, sample] = entry[1]
+                elif sample % 2 == 0:
+                    data[8:, sample] = entry[1]
+
                 sample += 1
+
+        # Upsampling
+        for point in range(3, data.shape[1]-1):
+            if point % 2 == 1:
+                data[8:, point] = (data[8:, point-1] + data[8:, point+1]) / 2
+            else:
+                data[:8, point] = (data[:8, point-1] + data[:8, point+1]) / 2
 
         if write:
             np.savetxt(f"Recorded\\{fname}.txt", data)

@@ -1,5 +1,6 @@
 from MNE_Tests.DataClasses import Stream, Container
 from MNE_Tests.VisualClasses import Plotter
+import numpy as np
 import tkinter as tk
 
 sample_freq = 250
@@ -9,6 +10,8 @@ chan_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'N
 with Stream(srate=sample_freq, nchans=16, ch_names=chan_names, port='COM4') as stream:
     stream.start_stream()
     data = stream.collect(duration=10, fname="10secondtest", write=True)
+
+# data = np.genfromtxt("Recorded\\10secondtest.txt")
 
 root = tk.Tk()
 con = Container(sample_freq, len(chan_names), data, chan_names)
