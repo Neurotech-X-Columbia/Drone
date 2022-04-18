@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import mne
 import numpy as np
 import serial
+import time
 
 
 class Container:
@@ -62,7 +63,7 @@ class Container:
         self.processed_data = raw_mne
 
         if eog:
-            self.mark_eog_events(['FP1', 'FP2'], ax, yrange)
+            self.mark_eog_events([channel], ax, yrange)
 
         return fig
 
@@ -77,8 +78,9 @@ class Container:
 class Stream:
     STOP_BYTE = bytes.fromhex('C0')
     SCALE_FACTOR = .02235  # microVolts per count
+    PACKET_SIZE = 33
 
-    def __init__(self, srate, ch_names, port, nchans=8, baudrate=115200):
+    def __init__(self, srate, ch_names, port, nchans=16, baudrate=115200):
         self.srate = srate
         self.nchans = nchans
         self.ch_names = ch_names
@@ -87,6 +89,7 @@ class Stream:
         self.serial = serial.Serial(port, baudrate)
 
         self.initialize_cyton()
+        time.sleep(3)
 
     def initialize_cyton(self):
         print("Resetting Cyton...")
@@ -105,50 +108,64 @@ class Stream:
 
     def get_sample(self, as_dict=True):
         """Extracts the most recent sample from the serial port"""
-        sample = self.serial.read_until(Stream.STOP_BYTE, size=32)
+        sample = self.serial.read_until(Stream.STOP_BYTE)
 
         # 'big' = MSB first
-        sample_num = int.from_bytes(sample[0], 'big')
+        sample_num = int.from_bytes(sample[1:2], 'big')
 
         if sample_num <= 1:  # Invalid sample due to Daisy/Cyton averaging technique
             return None
 
-        raw_counts = [int.from_bytes(sample[start: start+2], 'big', signed=True) for start in range(3, 25, 3)]
-        aux_data = [int.from_bytes(sample[start], 'big', signed=True) for start in range(27, 33)]
+        raw_counts = [int.from_bytes(sample[start: start+3], 'big', signed=True) for start in range(3, 25, 3)]
+        aux_data = [int.from_bytes(sample[start:start+1], 'big', signed=True) for start in range(27, 33)]
         microVolts = [raw * Stream.SCALE_FACTOR for raw in raw_counts]
 
         if as_dict:
             if sample_num % 2 == 0:
-                channels = self.ch_names[7:]  # Daisy data (last 8 channels)
+                channels = self.ch_names[8:]  # Daisy data (last 8 channels)
             else:
                 channels = self.ch_names[:8]  # Cyton data (first 8 channels)
-            return dict(zip(channels, microVolts))
+            return sample_num, dict(zip(channels, microVolts))
 
         else:
-            return microVolts
+            return sample_num, microVolts
 
-    def collect(self, num_samples=None, duration=None, write=False, fname=None):
+    def collect(self, num_samples=None, duration=None, write=False, fname="trial"):
         """Collects and writes given number of samples or duration"""
         if not (num_samples or duration):
             print("Specify either a number of samples to collect or a duration in seconds.")
             return
+        if self.nchans != 16:
+            print("Must be in sixteen channel mode.")
+            return
 
         if duration:
+            print(f"Collecting {duration} seconds of data.")
+            num_samples = int(self.srate*duration)
             data = np.zeros(shape=(self.nchans, num_samples))
         else:
+            print(f"Collecting {num_samples} samples of data.")
             data = np.zeros(shape=(self.nchans, int(duration*self.srate)))
 
-        for sample in range(0, num_samples):
+        for sample in range(num_samples):
             if entry := self.get_sample(as_dict=False):
-                data[sample, :] = entry
+                if entry[0] % 2 == 0:  # Daisy data
+                    data[8:, sample] = entry[1]
+                    data[:8, sample] = data[:8, entry[0]-1]
+                else:  # Cyton data
+                    data[:8, sample] = entry[1]
+                    data[8:, sample] = data[8:, entry[0]-1]
+                sample += 1
 
-        if fname and write:
-            np.savetxt(f"Recorded\\{fname}", data)
-        elif write:
-            np.savetxt("Recorded\\trial", data)
+        if write:
+            np.savetxt(f"Recorded\\{fname}.txt", data)
 
         return data
 
-    def __exit__(self):
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exception_type, exception_value, traceback):
+        print("Closing serial port and stopping stream...")
         self.stop_stream()
         self.close_port()
