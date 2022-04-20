@@ -116,7 +116,7 @@ class Stream:
         # 'big' = MSB first
         sample_num = int.from_bytes(sample[1:2], 'big')
 
-        if sample_num == 0 or len(sample) != 33:  # First sample invalid due to Daisy/Cyton averaging technique
+        if len(sample) != 33:  # First sample invalid due to Daisy/Cyton averaging technique
             return None
 
         raw_counts = [int.from_bytes(sample[start: start+3], 'big', signed=True) for start in range(3, 25, 3)]
@@ -145,36 +145,34 @@ class Stream:
         if duration:
             print(f"Collecting {duration} seconds of data.")
             num_samples = int(self.srate*duration)
-            data = np.zeros(shape=(self.nchans, num_samples))
+            data = np.zeros(shape=(self.nchans, num_samples+1))
         else:
             print(f"Collecting {num_samples} samples of data.")
-            data = np.zeros(shape=(self.nchans, int(duration*self.srate)))
+            data = np.zeros(shape=(self.nchans, int(duration*self.srate)+1))
 
         # Sample 0: invalid
         # Odd samples: Average(Cyton[x], Cyton[x-1])
         # Even samples: Average(Daisy[x], Cyton[x-1])
 
-        index = 0
-        while index < num_samples:
+        self.get_sample()  # Ignore first sample (invalid)
+        index = 1
+        while index < num_samples + 1:
             if entry := self.get_sample(as_dict=False):
                 byte_count = entry[0]
-                if byte_count == 1:  # Cyton
-                    data[:8, index] = entry[1]
-                elif byte_count == 2:  # Daisy
-                    data[8:, index] = data[8:, 1] = entry[1]
-                    data[:8, index] = data[:8, 1]
                 if byte_count % 2 == 1:  # Cyton
                     data[:8, index] = entry[1]
                 elif byte_count % 2 == 0:  # Daisy
                     data[8:, index] = entry[1]
 
-            index += 1
+                index += 1
 
         # Upsampling
-        for point in range(3, data.shape[1]-1):
-            if point % 2 == 1:
+        data = data[:, 1:]  # Remove first sample of all zeroes
+        data[8:, 0] = data[8:, 1]
+        for point in range(1, data.shape[1]-1):
+            if point % 2 == 0:  # Cyton
                 data[8:, point] = (data[8:, point-1] + data[8:, point+1]) / 2
-            else:
+            else:  # Daisy
                 data[:8, point] = (data[:8, point-1] + data[:8, point+1]) / 2
 
         if write:
