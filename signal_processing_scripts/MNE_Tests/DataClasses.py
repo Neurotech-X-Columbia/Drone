@@ -110,6 +110,9 @@ class Stream:
         """Extracts the most recent sample from the serial port"""
         sample = self.serial.read_until(Stream.STOP_BYTE)
 
+        while len(sample) < 33:
+            sample += self.serial.read_until(Stream.STOP_BYTE)
+
         # 'big' = MSB first
         sample_num = int.from_bytes(sample[1:2], 'big')
 
@@ -160,12 +163,12 @@ class Stream:
                 elif byte_count == 2:  # Daisy
                     data[8:, index] = data[8:, 1] = entry[1]
                     data[:8, index] = data[:8, 1]
-                elif byte_count % 2 == 1:  # Cyton
+                if byte_count % 2 == 1:  # Cyton
                     data[:8, index] = entry[1]
                 elif byte_count % 2 == 0:  # Daisy
                     data[8:, index] = entry[1]
 
-                index += 1
+            index += 1
 
         # Upsampling
         for point in range(3, data.shape[1]-1):
