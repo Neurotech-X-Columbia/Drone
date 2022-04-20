@@ -7,11 +7,11 @@ sample_freq = 250
 chan_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve',
               'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen']
 
-with Stream(srate=sample_freq, nchans=16, ch_names=chan_names, port='COM4') as stream:
-    stream.start_stream()
-    data = stream.collect(duration=10, fname="10secondtest", write=True)
+# with Stream(srate=sample_freq, nchans=16, ch_names=chan_names, port='COM4') as stream:
+#     stream.start_stream()
+#     data = stream.collect(duration=10, fname="10secondtest", write=True)
 
-# data = np.genfromtxt("Recorded\\10secondtest.txt")
+data = np.genfromtxt("Recorded\\10secondtest.txt")
 
 root = tk.Tk()
 con = Container(sample_freq, len(chan_names), data, chan_names)

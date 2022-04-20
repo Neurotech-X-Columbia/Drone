@@ -151,20 +151,21 @@ class Stream:
         # Odd samples: Average(Cyton[x], Cyton[x-1])
         # Even samples: Average(Daisy[x], Cyton[x-1])
 
-        sample = 0
-        while sample != num_samples:
+        index = 0
+        while index < num_samples:
             if entry := self.get_sample(as_dict=False):
-                if sample == 1:  # Cyton
-                    data[:8, sample] = entry[1]
-                elif sample == 2:  # Daisy
-                    data[8:, sample] = data[8:, 1] = entry[1]
-                    data[:8, sample] = data[:8, 1]
-                elif sample % 2 == 1:
-                    data[:8, sample] = entry[1]
-                elif sample % 2 == 0:
-                    data[8:, sample] = entry[1]
+                byte_count = entry[0]
+                if byte_count == 1:  # Cyton
+                    data[:8, index] = entry[1]
+                elif byte_count == 2:  # Daisy
+                    data[8:, index] = data[8:, 1] = entry[1]
+                    data[:8, index] = data[:8, 1]
+                elif byte_count % 2 == 1:  # Cyton
+                    data[:8, index] = entry[1]
+                elif byte_count % 2 == 0:  # Daisy
+                    data[8:, index] = entry[1]
 
-                sample += 1
+                index += 1
 
         # Upsampling
         for point in range(3, data.shape[1]-1):
