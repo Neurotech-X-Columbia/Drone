@@ -1,3 +1,4 @@
+import brainflow
 import matplotlib.pyplot as plt
 import mne
 import numpy as np
@@ -74,6 +75,10 @@ class Container:
 
         ax.vlines(locations, yrange[0], yrange[1], colors='r')
 
+    def detect_eog_events(self, eye_channel_names):
+        eog_events = mne.preprocessing.find_eog_events(self.processed_data, ch_name=eye_channel_names)
+        return eog_events[:, 0]/self.srate
+
 
 class Stream:
     STOP_BYTE = bytes.fromhex('C0')
@@ -133,9 +138,9 @@ class Stream:
         else:
             return sample_num, microVolts
 
-    def collect(self, num_samples=None, duration=None, write=False, fname="trial"):
+    def collect(self, samples=None, duration=None, write=False, fname="trial"):
         """Collects and writes given number of samples or duration"""
-        if not (num_samples or duration):
+        if not (samples or duration):
             print("Specify either a number of samples to collect or a duration in seconds.")
             return
         if self.nchans != 16:
@@ -144,11 +149,11 @@ class Stream:
 
         if duration:
             print(f"Collecting {duration} seconds of data.")
-            num_samples = int(self.srate*duration)
-            data = np.zeros(shape=(self.nchans, num_samples+1))
+            samples = int(self.srate*duration)
+            data = np.zeros(shape=(self.nchans, samples+1))
         else:
-            print(f"Collecting {num_samples} samples of data.")
-            data = np.zeros(shape=(self.nchans, int(duration*self.srate)+1))
+            print(f"Collecting {samples} samples of data.")
+            data = np.zeros(shape=(self.nchans, samples+1))
 
         # Sample 0: invalid
         # Odd samples: Average(Cyton[x], Cyton[x-1])
@@ -156,7 +161,7 @@ class Stream:
 
         self.get_sample()  # Ignore first sample (invalid)
         index = 1
-        while index < num_samples + 1:
+        while index < samples + 1:
             if entry := self.get_sample(as_dict=False):
                 byte_count = entry[0]
                 if byte_count % 2 == 1:  # Cyton
