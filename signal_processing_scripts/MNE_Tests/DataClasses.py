@@ -124,6 +124,7 @@ class Stream:
         if len(sample) != 33:  # First sample invalid due to Daisy/Cyton averaging technique
             return None
 
+        # Channel data sent in 24-bit two's complement format
         raw_counts = [int.from_bytes(sample[start: start+3], 'big', signed=True) for start in range(3, 25, 3)]
         aux_data = [int.from_bytes(sample[start:start+1], 'big', signed=True) for start in range(27, 33)]
         microVolts = [raw * Stream.SCALE_FACTOR for raw in raw_counts]

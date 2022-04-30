@@ -10,21 +10,21 @@ chan_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'N
               'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen']
 
 
-def brainflow_collect(samples):
+def brainflow_collect(samples, buffer_size=450000):
     params = brainflow.BrainFlowInputParams()
     params.serial_port = "COM4"
     board_id = 2
     board = brainflow.board_shim.BoardShim(board_id, params)
 
     board.prepare_session()
-    board.start_stream()
+    board.start_stream(buffer_size)
     time.sleep(int(samples/sample_freq))
-    data = board.get_board_data(samples)
+    data = board.get_board_data()
     board.stop_stream()
     board.release_session()
-    data_rows = board.get_eeg_channels(2)
+    data_rows = board.get_eeg_channels(board_id)
 
-    return data[1:17, :]
+    return data[data_rows[0]: data_rows[-1]+1, 10:]
 
 
 # with Stream(srate=sample_freq, nchans=16, ch_names=chan_names, port='COM4') as stream:
@@ -36,9 +36,7 @@ def brainflow_collect(samples):
 #     app = Plotter(con, channel_names=chan_names, datalimit=len(data[0, :]) - 1, master=root)
 #     app.mainloop()
 
-
 # data = np.genfromtxt("Recorded\\10secondtest.txt")
-
 
 data = brainflow_collect(2500)
 
