@@ -1,4 +1,3 @@
-import brainflow
 import matplotlib.pyplot as plt
 import mne
 import numpy as np
