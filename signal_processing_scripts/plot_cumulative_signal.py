@@ -10,7 +10,7 @@ import numpy as np
 import time
 import matplotlib.pyplot as plt
 
-sample_freq = 250
+
 chan_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve',
               'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen']
 chunksize = 300
@@ -20,7 +20,7 @@ hpass = 35
 
 params = BrainFlowInputParams()
 params.serial_port = '/dev/cu.usbserial-DM03H2PV' #or COM5 or COM4
-board_id = 2 #0 for cyton, #2 for cyton daisy 
+board_id = 2 #0 for cyton, #2 for cyton daisy, there is also an option for synthetic data
 board = BoardShim(board_id, params)
 board.prepare_session()
 board.start_stream(buffer_size)
@@ -28,6 +28,7 @@ data_rows = board.get_eeg_channels(board_id)
 
 #mne_info = mne.create_info(chan_names, sample_freq, 'eeg')
 full_data = []
+#Collect data for 10 seconds
 t_end = time.time() + 10
 chunk_count = 0
 while (time.time() < t_end):
@@ -62,7 +63,8 @@ for i, data_row in enumerate(full_data):
    axs[i].plot(data_row)
 plt.show()
 
-DataFilter.write_file(full_data, "cumulative_signal_blinks.csv", 'w') 
+#WRITE TO FILE
+#DataFilter.write_file(full_data, "cumulative_signal_blinks.csv", 'w') 
 
 # EYE BLINKING STUFF I THINK
 # root = tk.Tk()
