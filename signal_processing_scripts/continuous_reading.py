@@ -12,7 +12,7 @@ chan_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'N
 
 def brainflow_collect(samples, buffer_size=450000):
     params = brainflow.BrainFlowInputParams()
-    params.serial_port = "COM4"
+    params.serial_port = "COM3"
     board_id = 2
     board = brainflow.board_shim.BoardShim(board_id, params)
 
