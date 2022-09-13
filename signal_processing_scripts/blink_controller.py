@@ -72,16 +72,14 @@ while (time.time() < t_end):
         print(len(eog_events[:, 0]))
         if len(eog_events[:, 0]) == 3:
             print("Three blinks detected: Takeoff/Landing")
-            if taken_off:
-                takeoff_land(tello)
-                break
+            if not taken_off:
+                take_off(tello)
             else:
-                takeoff_land(tello)
-                break
+                land(tello)
         #plot_blinks(data, eog_events)
         start_chunk+=1
     except KeyboardInterrupt:
         break
 board.stop_stream()
 board.release_session()
-#land()
+land(tello)
