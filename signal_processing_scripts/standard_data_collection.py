@@ -82,7 +82,7 @@ board.release_session()
 
 pd.DataFrame(raw_data).to_csv(filename)
 
-root = tk.Tk()
-con = Container(srate, len(chan_names), raw_data, chan_names)
-app = Plotter(con, channel_names=chan_names, datalimit=len(raw_data[0, :])-1, master=root)
-app.mainloop()
+# root = tk.Tk()
+# con = Container(srate, len(chan_names), raw_data, chan_names)
+# app = Plotter(con, channel_names=chan_names, datalimit=len(raw_data[0, :])-1, master=root)
+# app.mainloop()

@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95c9a3f9-1ac3-4b2d-8e9d-a4314510cb6c" name="Changes" comment="Optimized data collection, but buffer size not always consistent with how many samples retrieved from get_board_data_count()">
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/read_and_plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/read_and_plot.py" afterDir="false" />
+    <list default="true" id="95c9a3f9-1ac3-4b2d-8e9d-a4314510cb6c" name="Changes" comment="Better optimized data collection script. Saves data to .csv.">
+      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/120sec_MC_9-13.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/20sec_MC_9-13.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/24sec_MC_9-13.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/30sec_MC_9-13.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/60sec_MC_9-13.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/signal_processing_scripts/standard_data_collection.py" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/standard_data_collection.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -252,7 +256,21 @@
       <option name="project" value="LOCAL" />
       <updated>1663093603656</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Better optimized data collection script. Saves data to .csv.">
+      <created>1663122884528</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1663122884528</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Better optimized data collection script. Saves data to .csv.">
+      <created>1663122938834</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1663122938834</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -288,7 +306,8 @@
     <MESSAGE value="Push" />
     <MESSAGE value="nothing" />
     <MESSAGE value="Optimized data collection, but buffer size not always consistent with how many samples retrieved from get_board_data_count()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimized data collection, but buffer size not always consistent with how many samples retrieved from get_board_data_count()" />
+    <MESSAGE value="Better optimized data collection script. Saves data to .csv." />
+    <option name="LAST_COMMIT_MESSAGE" value="Better optimized data collection script. Saves data to .csv." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
