@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def plot_blinks(data, eog_events):
     locations = eog_events[:, 0]
     print("locations")
