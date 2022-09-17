@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95c9a3f9-1ac3-4b2d-8e9d-a4314510cb6c" name="Changes" comment="Better optimized data collection script. Saves data to .csv.">
+    <list default="true" id="95c9a3f9-1ac3-4b2d-8e9d-a4314510cb6c" name="Changes" comment="Small changes to data collection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/10secondtest.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/signal_processing_scripts/standard_data_collection.py" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/standard_data_collection.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +62,27 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.create_data_session">
+    <configuration name="FFTEEGanalysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Drone" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/6Hz" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/6Hz/FFTEEGanalysis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="continuous_read" type="PythonConfigurationType" factoryName="Python">
       <module name="NeuroDrone" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,7 +172,13 @@
       <item itemvalue="Python.processing_GUI" />
       <item itemvalue="Python.cumulative_signal" />
       <item itemvalue="Python.create_data_session" />
+      <item itemvalue="Python.FFTEEGanalysis" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.FFTEEGanalysis" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -275,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663123267053</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Small changes to data collection">
+      <created>1663429973512</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1663429973512</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -312,7 +345,8 @@
     <MESSAGE value="nothing" />
     <MESSAGE value="Optimized data collection, but buffer size not always consistent with how many samples retrieved from get_board_data_count()" />
     <MESSAGE value="Better optimized data collection script. Saves data to .csv." />
-    <option name="LAST_COMMIT_MESSAGE" value="Better optimized data collection script. Saves data to .csv." />
+    <MESSAGE value="Small changes to data collection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small changes to data collection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

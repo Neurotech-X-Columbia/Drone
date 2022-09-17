@@ -1,4 +1,4 @@
-# To be used for data collection from Cyton/Daisy (16 channels 250 Hz)
+# To be used for data collection from Cyton/Daisy (16 channels 125 Hz)
 from brainflow.board_shim import BoardShim, BrainFlowInputParams
 from MNE_Tests.DataClasses import Container
 from MNE_Tests.VisualClasses import Plotter
@@ -36,10 +36,14 @@ break_time = 30  # time between trials
 srate = 125  # 125 for Cyton/Daisy; 250 for Cyton only
 channels = 16
 
-subj = "MC"
-stim_freq = "6Hz"  # Hz
+# 8000 total 5 buffer_size 1001 break_time 30 srate 125
+# ((8000/125)*5 + 30*4)*6/60 = 44 minutes per subject
+# ~5.3 minutes of data per frequency per subject
+
+subj = "JP"
+stim_freq = "TopRight"  # Hz
 date = "9-17"
-notes = "11:30 AM; room lighting low to medium; Lerner 568"  # miscellaneous info about collection conditions
+notes = ""  # miscellaneous info about collection conditions
 os.makedirs(f"Recorded\\{subj}\\{stim_freq}", exist_ok=True)
 chan_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve',
               'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen']
@@ -94,7 +98,7 @@ for x in range(total_trials):
             total += buf_count
         else:
             space = samples - total
-            raw_data[:, total:samples] = board.get_board_data()[data_rows[0]: data_rows[-1]+1, :space]
+            raw_data[:, total:samples] = board.get_board_data()[data_rows[0]: data_rows[-1] + 1, :space]
             total += space
 
         # print(f" {total} total samples recorded.")
