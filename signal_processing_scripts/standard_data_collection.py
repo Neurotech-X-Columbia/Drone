@@ -48,7 +48,7 @@ os.makedirs(f"Recorded\\{subj}\\{stim_freq}", exist_ok=True)
 chan_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve',
               'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen']
 
-with open(f"{os.getcwd()}\\info.txt", 'w') as info:
+with open(f"{os.getcwd()}\\Recorded\\{subj}\\info.txt", 'w') as info:
     info.write(f"Session: {total_trials} trials of {round(samples/srate, 2)} seconds each." +
                f"\nStimulation frequency: {stim_freq}" +
                f"\nSubject: {subj}" +
