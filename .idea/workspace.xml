@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95c9a3f9-1ac3-4b2d-8e9d-a4314510cb6c" name="Changes" comment="Better optimized data collection script. Saves data to .csv.">
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/120sec_MC_9-13.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/20sec_MC_9-13.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/24sec_MC_9-13.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/30sec_MC_9-13.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/60sec_MC_9-13.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/10secondtest.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/signal_processing_scripts/standard_data_collection.py" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/standard_data_collection.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +49,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;exceleditor.install&quot;: &quot;true&quot;,
@@ -270,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663122938834</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Better optimized data collection script. Saves data to .csv.">
+      <created>1663123267053</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1663123267053</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
