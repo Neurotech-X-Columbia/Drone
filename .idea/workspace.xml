@@ -308,7 +308,28 @@
       <option name="project" value="LOCAL" />
       <updated>1663429973512</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Small changes to data collection">
+      <created>1663446683345</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1663446683345</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Small changes to data collection">
+      <created>1663446758882</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1663446758882</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Small changes to data collection">
+      <created>1663446774015</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1663446774015</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

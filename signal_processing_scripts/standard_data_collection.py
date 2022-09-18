@@ -2,7 +2,7 @@
 from brainflow.board_shim import BoardShim, BrainFlowInputParams
 from MNE_Tests.DataClasses import Container
 from MNE_Tests.VisualClasses import Plotter
-from time import sleep
+from time import sleep, ctime
 from threading import Thread, Event
 
 import os
@@ -42,8 +42,9 @@ channels = 16
 
 subj = "JP"
 stim_freq = "TopRight"  # Hz
-date = "9-17"
+date = "9-18"
 notes = ""  # miscellaneous info about collection conditions
+
 os.makedirs(f"Recorded\\{subj}\\{stim_freq}", exist_ok=True)
 chan_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve',
               'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen']
@@ -72,7 +73,8 @@ print(f"Session: {total_trials} trials of {round(samples/srate, 2)} seconds each
       f"\nTime between trials: {break_time} seconds.\n")
 
 for x in range(total_trials):
-    filename = f"Recorded\\{subj}\\{stim_freq}\\{int(samples/srate)}sec_{trial_count}.csv"
+    timestamp = ctime()[-13:-5].replace(":", "-")
+    filename = f"Recorded\\{subj}\\{stim_freq}\\{int(samples/srate)}sec_{trial_count}{timestamp}.csv"
 
     flush = Event()
     timer = Timer(flush, .9*float(buffer_size/srate))  # interval defined as time it should take to fill the buffer
