@@ -4,54 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95c9a3f9-1ac3-4b2d-8e9d-a4314510cb6c" name="Changes" comment="Timestamps added and info file text path fixed">
-      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
+    <list default="true" id="95c9a3f9-1ac3-4b2d-8e9d-a4314510cb6c" name="Changes" comment="James data added">
+      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/6Hz/FFTEEGanalysis.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/BottomLeft/64sec_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/BottomLeft/64sec_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/BottomLeft/64sec_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/BottomLeft/64sec_2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/BottomLeft/64sec_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/BottomLeft/64sec_3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/BottomLeft/64sec_4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/BottomLeft/64sec_4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/BottomLeft/64sec_5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/BottomLeft/64sec_5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/BottomMiddle/64sec_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/BottomMiddle/64sec_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/BottomMiddle/64sec_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/BottomMiddle/64sec_2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/BottomMiddle/64sec_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/BottomMiddle/64sec_3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/BottomMiddle/64sec_4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/BottomMiddle/64sec_4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/BottomRight/64sec_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/BottomRight/64sec_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/BottomRight/64sec_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/BottomRight/64sec_2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/BottomRight/64sec_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/BottomRight/64sec_3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/BottomRight/64sec_4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/BottomRight/64sec_4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/BottomRight/64sec_5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/BottomRight/64sec_5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/TopLeft/64sec_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/TopLeft/64sec_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/TopLeft/64sec_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/TopLeft/64sec_2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/TopLeft/64sec_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/TopLeft/64sec_3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/TopLeft/64sec_4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/TopLeft/64sec_4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/TopLeft/64sec_5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/TopLeft/64sec_5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/TopLeft/64sec_6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/TopLeft/64sec_6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/TopRight/64sec_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/TopRight/64sec_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/TopRight/64sec_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/TopRight/64sec_2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/TopRight/64sec_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/TopRight/64sec_3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/GG/TopRight/64sec_4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/GG/TopRight/64sec_4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/JP/TopLeft/64sec_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/JP/TopLeft/64sec_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/JP/TopLeft/64sec_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/JP/TopLeft/64sec_2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/JP/TopLeft/64sec_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/JP/TopLeft/64sec_3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/JP/TopLeft/64sec_4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/JP/TopLeft/64sec_4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/JP/TopLeft/64sec_5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/JP/TopLeft/64sec_5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/JP/TopRight/64sec_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/JP/TopRight/64sec_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/JP/TopRight/64sec_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/JP/TopRight/64sec_2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/JP/TopRight/64sec_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/JP/TopRight/64sec_3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/JP/TopRight/64sec_4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/JP/TopRight/64sec_4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/JP/TopRight/64sec_5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/JP/TopRight/64sec_5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/JP/info.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/NG/TopLeft/64sec_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/NG/TopLeft/64sec_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/NG/TopLeft/64sec_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/NG/TopLeft/64sec_2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/NG/TopLeft/64sec_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/NG/TopLeft/64sec_3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/NG/TopLeft/64sec_4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/NG/TopLeft/64sec_4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Recorded/NG/TopLeft/64sec_5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/Recorded/NG/TopLeft/64sec_5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/info.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/read_and_plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/read_and_plot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/standard_data_collection.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/standard_data_collection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_collection_scripts/standard_data_collection.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/standard_data_collection.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -390,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663510861346</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="James data added">
+      <created>1663514000245</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1663514000245</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -430,7 +393,8 @@
     <MESSAGE value="Small changes to data collection" />
     <MESSAGE value="Timestamps added and info file text path" />
     <MESSAGE value="Timestamps added and info file text path fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Timestamps added and info file text path fixed" />
+    <MESSAGE value="James data added" />
+    <option name="LAST_COMMIT_MESSAGE" value="James data added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

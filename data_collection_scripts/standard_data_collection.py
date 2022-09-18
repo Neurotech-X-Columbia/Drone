@@ -30,9 +30,9 @@ class Timer(Thread):  # sets flush to True every {interval} seconds until raw_da
 
 # Session and trial parameters
 samples = 8000  # number of samples to capture in one trial (3750 = 30 seconds)
-total_trials = 5  # number of complete trials (sets of data) generated for this session
+total_trials = 1  # number of complete trials (sets of data) generated for this session
 buffer_size = 1001  # 1000 = 8 seconds stored in the buffer at once (buffer is actually one less than this value)
-break_time = 30  # time between trials
+break_time = 15  # time between trials
 srate = 125  # 125 for Cyton/Daisy; 250 for Cyton only
 channels = 16
 
@@ -40,8 +40,8 @@ channels = 16
 # ((8000/125)*5 + 30*4)*6/60 = 44 minutes per subject
 # ~5.3 minutes of data per frequency per subject
 
-subj = "MC"
-stim_freq = "TopLeft"  # Hz
+subj = "test"
+stim_freq = "BottomRight"  # Hz
 date = "9-18"
 notes = "EC 1013 9/18/22 natural light and some fluorescent"  # miscellaneous info about collection conditions
 
@@ -64,6 +64,12 @@ board = BoardShim(board_id, params)
 board.disable_board_logger()
 data_rows = board.get_eeg_channels(board_id)
 
+board.prepare_session()
+while not board.is_prepared():
+    sleep(.5)
+board.start_stream(buffer_size)
+sleep(2)  # wait for stream to stabilize
+
 raw_data = np.empty((channels, samples), dtype=np.float64)  # container for session data
 trial_count = 1
 
@@ -78,11 +84,6 @@ for x in range(total_trials):
 
     flush = Event()
     timer = Timer(flush, .9*float(buffer_size/srate))  # interval defined as time it should take to fill the buffer
-    board.prepare_session()
-    while not board.is_prepared():
-        sleep(.5)
-    board.start_stream(buffer_size)
-    sleep(2)  # wait for stream to stabilize
 
     print(f"Starting trial {trial_count}...\nRecording {samples} samples ({round(samples/srate, 2)} seconds) with a " +
           f"buffer size of {buffer_size} samples.")
@@ -93,22 +94,20 @@ for x in range(total_trials):
         timer.flush.wait()  # wait until flush flag set to True
         timer.flush.clear()  # reset flush flag to False
         buf_count = board.get_board_data_count()
+        board_data = board.get_board_data()
         # print(f"{buf_count} samples in buffer |", end="")
 
         if total + buf_count <= samples:
-            raw_data[:, total:total+buf_count] = board.get_board_data()[data_rows[0]: data_rows[-1]+1]
+            raw_data[:, total:total+buf_count] = board_data[data_rows[0]: data_rows[-1]+1]
             total += buf_count
         else:
             space = samples - total
-            raw_data[:, total:samples] = board.get_board_data()[data_rows[0]: data_rows[-1] + 1, :space]
+            raw_data[:, total:samples] = board_data[data_rows[0]: data_rows[-1] + 1, :space]
             total += space
 
         # print(f" {total} total samples recorded.")
 
     timer.end()
-    board.stop_stream()
-    board.release_session()
-
     pd.DataFrame(raw_data).to_csv(filename)
 
     if trial_count < total_trials:
@@ -118,6 +117,9 @@ for x in range(total_trials):
         sleep(10)
 
     trial_count += 1
+
+board.stop_stream()
+board.release_session()
 
 print("\nData collection complete.")
 # root = tk.Tk()
