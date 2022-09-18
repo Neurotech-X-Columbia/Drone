@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95c9a3f9-1ac3-4b2d-8e9d-a4314510cb6c" name="Changes" comment="James data added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_collection_scripts/standard_data_collection.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/standard_data_collection.py" afterDir="false" />
-    </list>
+    <list default="true" id="95c9a3f9-1ac3-4b2d-8e9d-a4314510cb6c" name="Changes" comment="Update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,11 +167,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.continuous_read" />
-      <item itemvalue="Python.processing_GUI" />
-      <item itemvalue="Python.cumulative_signal" />
-      <item itemvalue="Python.create_data_session" />
       <item itemvalue="Python.FFTEEGanalysis" />
+      <item itemvalue="Python.continuous_read" />
+      <item itemvalue="Python.create_data_session" />
+      <item itemvalue="Python.cumulative_signal" />
+      <item itemvalue="Python.processing_GUI" />
     </list>
     <recent_temporary>
       <list>
@@ -352,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663514000245</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Update">
+      <created>1663521132075</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1663521132075</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -393,7 +397,8 @@
     <MESSAGE value="Timestamps added and info file text path" />
     <MESSAGE value="Timestamps added and info file text path fixed" />
     <MESSAGE value="James data added" />
-    <option name="LAST_COMMIT_MESSAGE" value="James data added" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

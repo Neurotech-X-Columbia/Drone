@@ -1,0 +1,7 @@
+Session: 1 trials of 64.0 seconds each.
+Stimulation frequency: BottomRight
+Subject: MC
+Time between trials: 15 seconds.
+Buffer Size: 1001
+
+Notes: EC 1013 9/18/22 natural light and some fluorescent

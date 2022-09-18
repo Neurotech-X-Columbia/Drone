@@ -1,0 +1,7 @@
+Session: 1 trials of 64.0 seconds each.
+Stimulation frequency: TopLeft
+Subject: GB
+Time between trials: 30 seconds.
+Buffer Size: 1001
+
+Notes: EC 818 9/18/22 natural light and some fluorescent

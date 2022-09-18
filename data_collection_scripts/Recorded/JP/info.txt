@@ -1,0 +1,7 @@
+Session: 5 trials of 64.0 seconds each.
+Stimulation frequency: BottomRight
+Subject: JP
+Time between trials: 30 seconds.
+Buffer Size: 1001
+
+Notes: EC 1013 9/18/22 natural light and some fluorescent
