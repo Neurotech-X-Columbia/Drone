@@ -26,7 +26,7 @@ chan_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'N
               'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen']
 mne_info = mne.create_info(chan_names, sample_freq, 'eeg')
 
-recorded_data = DataFilter.read_file('../data/double_blinks/blink_2.csv')
+recorded_data = DataFilter.read_file('../data_collection_scripts/data/double_blinks/blink_2.csv')
 raw_mne = mne.io.RawArray(recorded_data, info=mne_info)
 raw_mne.filter(l_freq=lpass, h_freq=hpass)
 threshold =np.max(raw_mne[0][0]) - np.min(raw_mne[0][0]) / 4

@@ -1,7 +1,7 @@
 # To be used for data collection from Cyton/Daisy (16 channels 125 Hz)
 from brainflow.board_shim import BoardShim, BrainFlowInputParams
-from MNE_Tests.DataClasses import Container
-from MNE_Tests.VisualClasses import Plotter
+from signal_processing_scripts.MNE_Tests.DataClasses import Container
+from signal_processing_scripts.MNE_Tests.VisualClasses import Plotter
 from time import sleep, ctime
 from threading import Thread, Event
 
@@ -40,10 +40,10 @@ channels = 16
 # ((8000/125)*5 + 30*4)*6/60 = 44 minutes per subject
 # ~5.3 minutes of data per frequency per subject
 
-subj = "JP"
-stim_freq = "TopRight"  # Hz
+subj = "MC"
+stim_freq = "TopLeft"  # Hz
 date = "9-18"
-notes = ""  # miscellaneous info about collection conditions
+notes = "EC 1013 9/18/22 natural light and some fluorescent"  # miscellaneous info about collection conditions
 
 os.makedirs(f"Recorded\\{subj}\\{stim_freq}", exist_ok=True)
 chan_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve',
@@ -73,7 +73,7 @@ print(f"Session: {total_trials} trials of {round(samples/srate, 2)} seconds each
       f"\nTime between trials: {break_time} seconds.\n")
 
 for x in range(total_trials):
-    timestamp = ctime()[-13:-5].replace(":", "-")
+    timestamp = "_" + ctime()[-13:-5].replace(":", "-")
     filename = f"Recorded\\{subj}\\{stim_freq}\\{int(samples/srate)}sec_{trial_count}{timestamp}.csv"
 
     flush = Event()
