@@ -32,7 +32,7 @@ class Timer(Thread):  # sets flush to True every {interval} seconds until raw_da
 samples = 8000  # number of samples to capture in one trial (3750 = 30 seconds)
 total_trials = 1  # number of complete trials (sets of data) generated for this session
 buffer_size = 1001  # 1000 = 8 seconds stored in the buffer at once (buffer is actually one less than this value)
-break_time = 15  # time between trials
+break_time = 30  # time between trials
 srate = 125  # 125 for Cyton/Daisy; 250 for Cyton only
 channels = 16
 
@@ -40,10 +40,10 @@ channels = 16
 # ((8000/125)*5 + 30*4)*6/60 = 44 minutes per subject
 # ~5.3 minutes of data per frequency per subject
 
-subj = "test"
-stim_freq = "BottomRight"  # Hz
+subj = "GB"
+stim_freq = "TopLeft"  # Hz
 date = "9-18"
-notes = "EC 1013 9/18/22 natural light and some fluorescent"  # miscellaneous info about collection conditions
+notes = "EC 818 9/18/22 natural light and some fluorescent"  # miscellaneous info about collection conditions
 
 os.makedirs(f"Recorded\\{subj}\\{stim_freq}", exist_ok=True)
 chan_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve',
