@@ -33,7 +33,7 @@ class Timer(Thread):
         self.complete = True
 
 
-# Session and trial parameters
+# Trial and Session Parameters
 samples = 8000  # number of samples to capture in one trial (3750 = 30 seconds)
 total_trials = 5  # number of complete trials (sets of data) generated for this session
 buffer_size = 1001  # 1000 = 8 seconds stored in the buffer at once (buffer is actually one less than this value)
@@ -41,17 +41,22 @@ break_time = 30  # time between trials in seconds
 srate = 125  # 125 for Cyton/Daisy; 250 for Cyton only
 channels = 16
 
-subj = "GB"
-stim_freq = "TopLeft"  # Hz
+# Meta Information
+subj = "MC"
+stim_freq = "TopLeft"
 date = "9-23-22"
-notes = ""  # miscellaneous info about collection conditions
-storage_dir = f"Recorded\\{subj}\\{stim_freq}"  # directory where trial files are stored
+notes = f"\n{date}"  # miscellaneous info about collection conditions
+storage_dir = f"{os.getcwd()}\\Recorded\\{subj}\\{stim_freq}"  # directory where trial files are stored
 chan_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve',
               'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen']
 
-os.makedirs(storage_dir, exist_ok=True)
+# BrainFlow Parameters
+params = BrainFlowInputParams()
+params.serial_port = "COM3"  # check device manager on Windows
+board_id = 2  # 0 for cyton, #2 for Cyton/Daisy, there is also an option for synthetic data
 
-with open(f"{os.getcwd()}\\Recorded\\{subj}\\{stim_freq}\\info.txt", 'w') as info:
+os.makedirs(storage_dir, exist_ok=True)
+with open(f"{storage_dir}\\info.txt", 'w') as info:
     info.write(f"Session: {total_trials} trials of {round(samples/srate, 2)} seconds each." +
                f"\nStimulation frequency: {stim_freq}" +
                f"\nSubject: {subj}" +
@@ -59,9 +64,6 @@ with open(f"{os.getcwd()}\\Recorded\\{subj}\\{stim_freq}\\info.txt", 'w') as inf
                f"\nBuffer Size: {buffer_size}\n"
                f"\nNotes: {notes}")
 
-params = BrainFlowInputParams()
-params.serial_port = "COM3"  # check device manager on Windows
-board_id = 2  # 0 for cyton, #2 for Cyton/Daisy, there is also an option for synthetic data
 board = BoardShim(board_id, params)
 board.disable_board_logger()
 data_rows = board.get_eeg_channels(board_id)

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95c9a3f9-1ac3-4b2d-8e9d-a4314510cb6c" name="Changes" comment="Documentation added; file structure reorganized" />
+    <list default="true" id="95c9a3f9-1ac3-4b2d-8e9d-a4314510cb6c" name="Changes" comment="gitignored project/IDE settings">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_collection_scripts/standard_data_collection.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/standard_data_collection.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -370,7 +373,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663978844176</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="gitignored project/IDE settings">
+      <created>1663979229447</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1663979229447</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -413,7 +423,8 @@
     <MESSAGE value="James data added" />
     <MESSAGE value="Update" />
     <MESSAGE value="Documentation added; file structure reorganized" />
-    <option name="LAST_COMMIT_MESSAGE" value="Documentation added; file structure reorganized" />
+    <MESSAGE value="gitignored project/IDE settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignored project/IDE settings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
