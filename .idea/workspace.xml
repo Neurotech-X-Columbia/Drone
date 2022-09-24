@@ -4,124 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95c9a3f9-1ac3-4b2d-8e9d-a4314510cb6c" name="Changes" comment="Update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_collection_scripts/standard_data_collection.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_collection_scripts/standard_data_collection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/.ipynb_checkpoints/Untitled-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/DataClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/DataClasses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/MotorMovementDataset.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S00_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S00_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S00_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S00_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S01_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S01_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S01_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S01_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S02_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S02_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S02_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S02_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S03_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S03_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S03_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S03_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S04_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S04_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S04_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S04_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S05_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S05_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S05_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S05_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S06_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S06_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S06_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S06_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S07_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S07_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S07_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S07_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S08_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S08_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S08_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S08_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S09_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S09_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S09_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S09_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S10_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S10_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S10_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S10_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S11_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S11_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S11_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S11_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S12_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S12_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S12_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S12_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S13_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S13_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S13_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S13_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S14_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S14_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S14_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S14_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S15_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S15_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S15_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S15_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S16_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S16_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S16_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S16_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S17_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S17_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S17_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S17_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S18_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S18_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S18_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S18_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S19_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S19_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-IO/S19_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-IO/S19_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S00R_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S00R_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S00R_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S00R_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S01R_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S01R_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S01R_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S01R_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S02R_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S02R_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S02R_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S02R_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S03R_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S03R_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S03R_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S03R_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S04R_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S04R_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S04R_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S04R_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S05R_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S05R_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S05R_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S05R_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S06R_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S06R_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S06R_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S06R_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S07R_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S07R_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S07R_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S07R_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S08R_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S08R_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S08R_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S08R_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S09R_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S09R_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S09R_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S09R_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S10R_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S10R_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S10R_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S10R_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S11R_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S11R_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S11R_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S11R_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S12R_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S12R_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VR/S12R_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VR/S12R_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S00V_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S00V_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S00V_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S00V_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S01V_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S01V_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S01V_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S01V_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S02V_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S02V_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S02V_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S02V_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S03V_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S03V_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S03V_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S03V_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S04V_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S04V_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S04V_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S04V_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S05V_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S05V_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S05V_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S05V_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S06V_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S06V_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S06V_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S06V_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S07V_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S07V_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S07V_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S07V_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S08V_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S08V_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S08V_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S08V_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S09V_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S09V_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S09V_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S09V_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S10V_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S10V_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S10V_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S10V_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S11V_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S11V_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S11V_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S11V_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S12V_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S12V_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/EEG-VV/S12V_labels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/EEG-VV/S12V_labels.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/EEG-EyeBlinks/read_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/EEG-EyeBlinks/read_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/Subject1_1D.mat" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/Subject1_1D.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/VoluntaryBlinks.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/Src/right_thumb_eeg.txt" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/Src/right_thumb_eeg.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/VisualClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/VisualClasses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/connecting_headset.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/MNE_Tests/run_compare.py" beforeDir="false" afterPath="$PROJECT_DIR$/signal_processing_scripts/data_visualizer_example.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/Untitled.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/blink_controller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/continuous_reading.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/make_testing_data_judah.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/plot_cumulative_signal.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/read_and_plot.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/real_time_stream.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signal_processing_scripts/trainingFilesCreation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testBCI.py" beforeDir="false" />
-    </list>
+    <list default="true" id="95c9a3f9-1ac3-4b2d-8e9d-a4314510cb6c" name="Changes" comment="Documentation added; file structure reorganized" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,9 +55,9 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mathe\PycharmProjects\Drone\signal_processing_scripts" />
       <recent name="C:\Users\mathe\PycharmProjects\Drone\data_collection_scripts\Recorded\JP" />
       <recent name="C:\Users\mathe\PycharmProjects\Drone\data_collection_scripts" />
-      <recent name="C:\Users\mathe\PycharmProjects\Drone\signal_processing_scripts" />
     </key>
   </component>
   <component name="RunManager" selected="Python.create_data_session">
@@ -480,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663523938937</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Documentation added; file structure reorganized">
+      <created>1663978844176</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1663978844176</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -522,7 +412,8 @@
     <MESSAGE value="Timestamps added and info file text path fixed" />
     <MESSAGE value="James data added" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Documentation added; file structure reorganized" />
+    <option name="LAST_COMMIT_MESSAGE" value="Documentation added; file structure reorganized" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
