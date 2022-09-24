@@ -3,6 +3,8 @@ import tkinter as tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from tkinter import ttk
 
+"""GUI for visualizing raw data and data after basic processing (one channel at a time)"""
+
 
 class Plotter(ttk.Frame):
     def __init__(self, simulator, datalimit, channel_names, master=None):

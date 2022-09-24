@@ -4,6 +4,9 @@ import numpy as np
 import serial
 import time
 
+"""Stream class is outdated; just use Brainflow.
+    Container class stores data to use with Plotter and MNE functions."""
+
 
 class Container:
     def __init__(self, sample_rate, n_channels, data, ch_names, lpass=None, hpass=None):

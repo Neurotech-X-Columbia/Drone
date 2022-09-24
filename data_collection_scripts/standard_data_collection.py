@@ -1,7 +1,4 @@
-# To be used for data collection from Cyton/Daisy (16 channels 125 Hz)
 from brainflow.board_shim import BoardShim, BrainFlowInputParams
-from signal_processing_scripts.MNE_Tests.DataClasses import Container
-from signal_processing_scripts.MNE_Tests.VisualClasses import Plotter
 from time import sleep, ctime
 from threading import Thread, Event
 
@@ -10,8 +7,14 @@ import numpy as np
 import pandas as pd
 import tkinter as tk
 
+# To be used for data collection from Cyton/Daisy (16 channels 125 Hz)
 
-class Timer(Thread):  # sets flush to True every {interval} seconds until raw_data is full
+
+class Timer(Thread):
+    """Timing thread to be run parallel to main thread.
+            event (threading.Event): contains flag value to indicate to main thread when to clear buffer
+            interval (float): time between buffer clears in seconds
+            self.complete (bool): set to True when finished collecting trial data"""
     def __init__(self, event, interval):
         super().__init__()
         self.flush = event
@@ -19,6 +22,8 @@ class Timer(Thread):  # sets flush to True every {interval} seconds until raw_da
         self.interval = interval
 
     def run(self):
+        """Overrides run() from threading.Thread to indicate when the buffer should be flushed. Stops after the end of
+           the ongoing interval when self.complete is set to True"""
         # wait appropriate time interval to fill buffer, then cause main thread to store data from buffer
         while not self.complete:
             while not self.flush.wait(self.interval):  # every interval:
@@ -30,26 +35,23 @@ class Timer(Thread):  # sets flush to True every {interval} seconds until raw_da
 
 # Session and trial parameters
 samples = 8000  # number of samples to capture in one trial (3750 = 30 seconds)
-total_trials = 1  # number of complete trials (sets of data) generated for this session
+total_trials = 5  # number of complete trials (sets of data) generated for this session
 buffer_size = 1001  # 1000 = 8 seconds stored in the buffer at once (buffer is actually one less than this value)
-break_time = 30  # time between trials
+break_time = 30  # time between trials in seconds
 srate = 125  # 125 for Cyton/Daisy; 250 for Cyton only
 channels = 16
 
-# 8000 total 5 buffer_size 1001 break_time 30 srate 125
-# ((8000/125)*5 + 30*4)*6/60 = 44 minutes per subject
-# ~5.3 minutes of data per frequency per subject
-
 subj = "GB"
 stim_freq = "TopLeft"  # Hz
-date = "9-18"
-notes = "EC 818 9/18/22 natural light and some fluorescent"  # miscellaneous info about collection conditions
-
-os.makedirs(f"Recorded\\{subj}\\{stim_freq}", exist_ok=True)
+date = "9-23-22"
+notes = ""  # miscellaneous info about collection conditions
+storage_dir = f"Recorded\\{subj}\\{stim_freq}"  # directory where trial files are stored
 chan_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve',
               'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen']
 
-with open(f"{os.getcwd()}\\Recorded\\{subj}\\info.txt", 'w') as info:
+os.makedirs(storage_dir, exist_ok=True)
+
+with open(f"{os.getcwd()}\\Recorded\\{subj}\\{stim_freq}\\info.txt", 'w') as info:
     info.write(f"Session: {total_trials} trials of {round(samples/srate, 2)} seconds each." +
                f"\nStimulation frequency: {stim_freq}" +
                f"\nSubject: {subj}" +
@@ -83,7 +85,8 @@ for x in range(total_trials):
     filename = f"Recorded\\{subj}\\{stim_freq}\\{int(samples/srate)}sec_{trial_count}{timestamp}.csv"
 
     flush = Event()
-    timer = Timer(flush, .9*float(buffer_size/srate))  # interval defined as time it should take to fill the buffer
+    # interval is a little under time to fill buffer to capture all samples
+    timer = Timer(flush, .9*float(buffer_size/srate))
 
     print(f"Starting trial {trial_count}...\nRecording {samples} samples ({round(samples/srate, 2)} seconds) with a " +
           f"buffer size of {buffer_size} samples.")
@@ -98,8 +101,12 @@ for x in range(total_trials):
         # print(f"{buf_count} samples in buffer |", end="")
 
         if total + buf_count <= samples:
-            raw_data[:, total:total+buf_count] = board_data[data_rows[0]: data_rows[-1]+1]
-            total += buf_count
+            try:  # to account for new sample being added between getting board data count and getting board data
+                raw_data[:, total:total+buf_count] = board_data[data_rows[0]: data_rows[-1]+1]
+                total += buf_count
+            except ValueError:
+                raw_data[:, total:total+buf_count+1] = board_data[data_rows[0]: data_rows[-1]+1]
+                total += buf_count + 1
         else:
             space = samples - total
             raw_data[:, total:samples] = board_data[data_rows[0]: data_rows[-1] + 1, :space]
@@ -122,7 +129,3 @@ board.stop_stream()
 board.release_session()
 
 print("\nData collection complete.")
-# root = tk.Tk()
-# con = Container(srate, len(chan_names), raw_data, chan_names)
-# app = Plotter(con, channel_names=chan_names, datalimit=len(raw_data[0, :])-1, master=root)
-# app.mainloop()
