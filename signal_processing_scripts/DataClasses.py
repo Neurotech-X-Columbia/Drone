@@ -77,8 +77,9 @@ class Container:
 
         ax.vlines(locations, yrange[0], yrange[1], colors='r')
 
-    def detect_eog_events(self, eye_channel_names):
-        eog_events = mne.preprocessing.find_eog_events(self.processed_data, ch_name=eye_channel_names)
+    def detect_eog_events(self, eye_channel_names, threshold=None):
+        eog_events = mne.preprocessing.find_eog_events(self.processed_data, ch_name=eye_channel_names,
+                                                       thresh=threshold)
         return eog_events[:, 0]/self.srate
 
 

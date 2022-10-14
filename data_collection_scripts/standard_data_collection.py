@@ -5,7 +5,7 @@ from threading import Thread, Event
 import os
 import numpy as np
 import pandas as pd
-import tkinter as tk
+# import tkinter as tk
 
 # To be used for data collection from Cyton/Daisy (16 channels 125 Hz)
 
