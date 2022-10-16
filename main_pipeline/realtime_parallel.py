@@ -34,7 +34,7 @@ def process_loop(proc, *hs_params):
 def detect_blinks(data):
     ch_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve',
                 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen']
-    mne_form = Container(sample_rate=125, n_channels=16, data=data, ch_names=ch_names)
+    mne_form = Container(sample_rate=125, n_channels=16, data=data, ch_names=ch_names, lpass=7)
     locations = mne_form.detect_eog_events(["One, Two"])
 
     if locations.any():
@@ -70,7 +70,7 @@ if __name__ == '__main__':
 
     states = ['a', 'b']
     default = 'a'
-    funcs = detect_blinks
+    funcs = detect_blinks  # Tuple of processing functions to apply to every chunk. Should accept data and return state
 
     pro = Processor(states, default, funcs)
     process_loop(pro, [buffer_size, chunk_size, srate, serial_port])
