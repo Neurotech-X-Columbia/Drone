@@ -28,38 +28,14 @@ def process_loop(proc, *hs_params):
     #         active = False
     #         print("Session end.")
 
-# Change to custom processing functions that take in only data as paremeters
+# Change to custom processing functions that take in only data as parameters
 
 
-def detect_blinks(data):  # DOES NOT WORK
-    ch_names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve',
-                'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen']
-    mne_form = Container(125, 16, data, ch_names, lpass=7)
-    locations = mne_form.detect_eog_events(["One, Two"])
-
-    if locations.any():
-        return 'a'
-
-
-def procedure_one(data):
+def detect_blinks(data):
     if np.mean(data) <= 50:
-        return 'a'
+        return 'blink'
     else:
-        return 'b'
-
-
-def procedure_two(data):
-    if np.median(data) <= 50:
-        return 'a'
-    else:
-        return 'b'
-
-
-def procedure_three(data):
-    if np.median(data) > 50:
-        return 'a'
-    else:
-        return 'b'
+        return 'no blink'
 
 
 if __name__ == '__main__':
@@ -69,9 +45,11 @@ if __name__ == '__main__':
     serial_port = 'COM3'
     board_id = 2
 
-    states = ['a', 'b']
-    default = 'a'
-    funcs = detect_blinks  # Tuple of processing functions to apply to every chunk. Should accept data and return state
+    states = ['blink', 'no blink']
+    default = 'no blink'
+
+    # Tuple of processing functions to apply to every chunk. Should accept data and return state
+    funcs = (detect_blinks)
 
     pro = Processor(states, default, funcs)
     process_loop(pro, *(buffer_size, chunk_size, srate, serial_port, board_id))
