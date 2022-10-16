@@ -117,7 +117,7 @@ for x in range(total_trials):
         # print(f" {total} total samples recorded.")
 
     timer.end()
-    pd.DataFrame(raw_data).to_csv(filename)
+    # pd.DataFrame(raw_data).to_csv(filename)
 
     if trial_count < total_trials:
         print(f"Trial {trial_count} complete. Starting next trial in {break_time} seconds.\n")

@@ -23,6 +23,7 @@ class Headset:
         self.board = BoardShim(self.bid, params)
         self.board.disable_board_logger()
         self.drows = self.board.get_eeg_channels(self.bid)
+        self.is_active = True
 
     def start_stream(self):
         if not self.is_active:
@@ -56,7 +57,7 @@ class Processor:
         for state in self.states:
             self.state_dict[state] = 0
 
-        for func in self.proc_funcs[0]:
+        for func in self.proc_funcs:
             self.state_dict[func(data)] += 1
 
         self.update_state()
