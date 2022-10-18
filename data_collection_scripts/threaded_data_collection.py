@@ -8,6 +8,9 @@ import pandas as pd
 # import tkinter as tk
 
 # To be used for data collection from Cyton/Daisy (16 channels 125 Hz)
+# Uses threaded approach to get reliable timing between buffer clears.
+# Threading not strictly necessary for data collection. Big buffer
+# should work just as well.
 
 
 class Timer(Thread):
@@ -98,17 +101,13 @@ for x in range(total_trials):
     while total < samples:
         timer.flush.wait()  # wait until flush flag set to True
         timer.flush.clear()  # reset flush flag to False
-        buf_count = board.get_board_data_count()
         board_data = board.get_board_data()
+        buf_count = len(board_data[0, :])
         # print(f"{buf_count} samples in buffer |", end="")
 
         if total + buf_count <= samples:
-            try:  # to account for new sample being added between getting board data count and getting board data
-                raw_data[:, total:total+buf_count] = board_data[data_rows[0]: data_rows[-1]+1]
-                total += buf_count
-            except ValueError:
-                raw_data[:, total:total+buf_count+1] = board_data[data_rows[0]: data_rows[-1]+1]
-                total += buf_count + 1
+            raw_data[:, total:total+buf_count] = board_data[data_rows[0]: data_rows[-1]+1]
+            total += buf_count
         else:
             space = samples - total
             raw_data[:, total:samples] = board_data[data_rows[0]: data_rows[-1] + 1, :space]
@@ -117,7 +116,7 @@ for x in range(total_trials):
         # print(f" {total} total samples recorded.")
 
     timer.end()
-    # pd.DataFrame(raw_data).to_csv(filename)
+    pd.DataFrame(raw_data).to_csv(filename)
 
     if trial_count < total_trials:
         print(f"Trial {trial_count} complete. Starting next trial in {break_time} seconds.\n")
