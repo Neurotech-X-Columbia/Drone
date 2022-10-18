@@ -3,11 +3,10 @@ from time import sleep
 
 
 class Headset:
-    def __init__(self, buffer_size, chunk_size, srate, serial_port, board_id=2):
+    def __init__(self, window_size, srate, serial_port, board_id=2):
         self.serial_port = serial_port
         self.bid = board_id
-        self.buf_size = buffer_size + 1
-        self.chk_size = chunk_size
+        self.buf_size = window_size + 1
         self.srate = srate
 
         self.is_active = False
@@ -43,7 +42,7 @@ class Headset:
         self.is_active = False
 
     def collect(self):
-        return self.board.get_board_data(self.chk_size)[self.drows[0]: self.drows[-1]+1]
+        return self.board.get_current_board_data()[self.drows[0]: self.drows[-1]+1]
 
 
 class Processor:

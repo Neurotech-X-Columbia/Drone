@@ -13,7 +13,7 @@ import pandas as pd
 # Trial and Session Parameters
 samples = 3500  # number of samples to capture in one trial (3750 = 30 seconds)
 total_trials = 5  # number of complete trials (sets of data) generated for this session
-buffer_size = 1.25 * samples  # buffer size 125% of trial size (max buffer size = 450000)
+buffer_size = int(1.25 * samples)  # buffer size 125% of trial size (max buffer size = 450000)
 break_time = 30  # time between trials in seconds
 srate = 125  # 125 for Cyton/Daisy; 250 for Cyton only
 channels = 16

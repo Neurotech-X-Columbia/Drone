@@ -28,7 +28,7 @@ def process_loop(proc, *hs_params):
     #         active = False
     #         print("Session end.")
 
-# Change to custom processing functions that take in only data as parameters
+# Change to custom processing functions that take in only data as parameters and return a state as output
 
 
 def detect_blinks(data):
@@ -39,8 +39,7 @@ def detect_blinks(data):
 
 
 if __name__ == '__main__':
-    buffer_size = 1001
-    chunk_size = 500
+    window_size = 500
     srate = 125
     serial_port = 'COM3'
     board_id = 2
@@ -52,4 +51,4 @@ if __name__ == '__main__':
     funcs = (detect_blinks)
 
     pro = Processor(states, default, funcs)
-    process_loop(pro, *(buffer_size, chunk_size, srate, serial_port, board_id))
+    process_loop(pro, *(window_size, srate, serial_port, board_id))
