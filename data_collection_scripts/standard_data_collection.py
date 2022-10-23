@@ -93,8 +93,13 @@ for x in range(total_trials):
     print(f"Starting trial {trial_count}...\nRecording {samples} samples ({round(samples/srate, 2)} seconds) with a " +
           f"buffer size of {buffer_size} samples.")
 
-    timer.start()
+    timer.start() # from timer thread, telling to start
     total = 0  # total samples recorded
+
+    # flags are ways for threads to communicate. Assigns to events
+    # flush is the flag that tells main thread to wait
+
+
     while total < samples:
         timer.flush.wait()  # wait until flush flag set to True
         timer.flush.clear()  # reset flush flag to False
