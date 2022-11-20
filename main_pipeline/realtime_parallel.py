@@ -1,3 +1,4 @@
+import mne
 import numpy as np
 from PipelineClasses import Headset, Processor
 from signal_processing_scripts.DataClasses import Container
@@ -32,10 +33,19 @@ def process_loop(proc, *hs_params):
 
 
 def detect_blinks(data):
-    if np.mean(data) <= 50:
-        return 'blink'
-    else:
-        return 'no blink'
+    chan_names = ['FP1', 'FP2']
+    sample_freq = 125
+    lpass = 5
+    hpass = 55
+    mne_info = mne.create_info(chan_names, sample_freq, 'eeg')
+
+    raw_mne = mne.io.RawArray(data, info=mne_info)
+    raw_mne.filter(l_freq=lpass, h_freq=hpass)
+    threshold = np.max(raw_mne[0][0]) - np.min(raw_mne[0][0]) / 4
+    eog_events = mne.preprocessing.find_eog_events(raw_mne, ch_name=["One", "Two"], thresh=threshold)
+    locations = eog_events[:, 0] / srate
+
+    return len(locations)
 
 
 if __name__ == '__main__':
