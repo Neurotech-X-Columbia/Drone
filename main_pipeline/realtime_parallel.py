@@ -17,13 +17,14 @@ def process_loop(proc, *hs_params):
     chunk_num = 0
     while headset.is_active:
         try:
+            start = int(chunk_num * ((1-overlap)*window_size))
+            end = start + window_size
+
             if (chunk := headset.collect()).any():
                 proc.process_chunk(chunk)
                 chunk_num += 1
 
             new = proc.get_state()
-            start = int(chunk_num * (overlap*window_size))
-            end = start + window_size
             proc.log_change(start, end, new_state=new)
 
             print(f"State: {new}")
@@ -40,16 +41,15 @@ def process_loop(proc, *hs_params):
 def detect_blinks(data):  # Accepts data and returns the number of blinks detected in it
     chan_names = ['FP1', 'FP2']
     sample_freq = 250
-    lpass = 5
-    hpass = 55
+    lpass = 1
+    hpass = 10
     mne_info = mne.create_info(chan_names, sample_freq, 'eeg')
 
     raw_mne = mne.io.RawArray(data, info=mne_info)
     raw_mne.filter(l_freq=lpass, h_freq=hpass)
     threshold = (np.max(raw_mne[0][0]) - np.min(raw_mne[0][0])) / 4
-    eog_events = mne.preprocessing.find_eog_events(raw_mne, ch_name=["FP1", "FP2"], thresh=threshold,
-                                                   filter_length='3s')
-    locations = eog_events[:, 0] / srate
+    eog_events = mne.preprocessing.find_eog_events(raw_mne, ch_name=["FP1", "FP2"], thresh=threshold)
+    locations = eog_events[:, 0] / sample_freq
 
     if len(locations):
         state = 'blink'
@@ -61,7 +61,7 @@ def detect_blinks(data):  # Accepts data and returns the number of blinks detect
 
 if __name__ == '__main__':
     # For both live and simulated
-    window_size = 375
+    window_size = 250
 
     # For live data collection
     srate = 125
@@ -69,9 +69,9 @@ if __name__ == '__main__':
     board_id = 2
 
     # For simulated data collection
-    overlap = .3
+    overlap = 0
     datapath = "signal_processing_scripts\\Src\\EEG-EyeBlinks\\EEG-IO\\S06_data.csv"
-    logfilename = f"log.txt"
+    logfilename = "log.txt"
 
     states = ['blink', 'no blink']
     default = 'no blink'

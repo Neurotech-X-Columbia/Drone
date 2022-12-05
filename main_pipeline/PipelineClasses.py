@@ -65,13 +65,14 @@ class SimulatedHeadset:
         self.data = np.genfromtxt(filepath, delimiter=';', skip_header=True, usecols=(1, 2)).transpose()
 
         self.chunk_size = window_size  # Chunk size in samples
-        self.overlap = overlap  # Percent of old chunk to include in new chunk
+        self.overlap = overlap  # Fraction of old chunk to include in new chunk
         self.stream = self.chunk_generator()
         self.is_active = True
 
     def chunk_generator(self):
         """Generator that returns 'newest' chunk"""
-        shift = int(self.overlap*self.chunk_size)
+        shift = int((1-self.overlap)*self.chunk_size)
+
         for start in range(0, len(self.data[0]), shift):
             end = min(len(self.data[0]), start+self.chunk_size)
 
