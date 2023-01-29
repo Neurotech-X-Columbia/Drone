@@ -17,9 +17,6 @@ class Headset:
         self.drows = None
         self.board = None
 
-        if self.chk_size > self.buf_size:
-            raise BufferSizeException("Headset buffer size must be larger than chunksize.")
-
     def initialize(self):
         """Prepare OpenBCI  for streaming"""
         params = BrainFlowInputParams()

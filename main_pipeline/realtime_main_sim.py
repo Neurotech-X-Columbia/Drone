@@ -2,16 +2,13 @@ import mne
 import numpy as np
 
 from time import ctime
-from PipelineClasses import Headset, SimulatedHeadset, Processor
+from PipelineClasses import SimulatedHeadset, Processor
+from ProcessingFunctions import detect_blinks
 
 # import random
 
 
 def process_loop(proc, *hs_params):
-    # headset = Headset(*hs_params)
-    # headset.initialize()
-    # headset.start_stream()
-
     headset = SimulatedHeadset(*hs_params)
 
     chunk_num = 0
@@ -34,29 +31,6 @@ def process_loop(proc, *hs_params):
             print("Session end.")
 
     proc.close_log()
-
-# Change to custom processing functions that take in only data as parameters and return a state as output
-
-
-def detect_blinks(data):  # Accepts data and returns the number of blinks detected in it
-    chan_names = ['FP1', 'FP2']
-    sample_freq = 250
-    lpass = 1
-    hpass = 10
-    mne_info = mne.create_info(chan_names, sample_freq, 'eeg')
-
-    raw_mne = mne.io.RawArray(data, info=mne_info)
-    raw_mne.filter(l_freq=lpass, h_freq=hpass)
-    threshold = (np.max(raw_mne[0][0]) - np.min(raw_mne[0][0])) / 4
-    eog_events = mne.preprocessing.find_eog_events(raw_mne, ch_name=["FP1", "FP2"], thresh=threshold)
-    locations = eog_events[:, 0] / sample_freq
-
-    if len(locations):
-        state = 'blink'
-    else:
-        state = 'no blink'
-
-    return state
 
 
 if __name__ == '__main__':
