@@ -35,7 +35,7 @@ def process_loop(proc, *hs_params):
 
 if __name__ == '__main__':
     # For both live and simulated
-    window_size = 250
+    window_size = 1000
 
     # For live data collection
     srate = 125
