@@ -1,11 +1,28 @@
 # Drone
-Neurotech X Columbia is an undergraduate neuroengineering club at Columbia University. We are currently pursuing a project to build a mind-controlled drone based off EEG signals acquired from an OpenBCI headset.
+## Objective
+Develop a program that can interpret brain signals from an EEG headset and convert them to instructions
+that control the flight of a drone, relaying those instructions in real time.
 
-## Prerequisites: 
+## Hardware
+- OpenBCI UltraCortex Mark IV (with Daisy expansion)
+- DJI Tello Drone
 
-We use the Conda open source package management system. The installation directions can be found here: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
+## Repository Structure
+**DataCollection** - contains code related to data acquisition for this project. See NeuroData repo for 
+general data collection code.\
+**Machine Learning and Signal Processing (ML-SP)** - contains code related to data manipulation
+for any part of the project, including pre-processing, post-processing, model training and storage, etc.\
+**Systems and Applications** - contains code related to the final application, including GUI code, 
+main process loop, ML model integrations, etc.
 
-1. Clone this repo
-2. Run `conda env -f environment.yml`
-3. Verify the environment was installed with `conda info --envs`
-4. Activate the environment with `conda activate drone`
+## Environment Setup and Package Management
+### Conda (recommended)
+- If you haven't already, [install](https://docs.conda.io/projects/miniconda/en/latest/index.html) the Conda package and environment management system for your operating system. Miniconda is recommended, but full Anaconda will also work.
+- On Windows, open an Anaconda Prompt or an Anaconda Powershell from the start menu and navigate to where this repo is cloned.
+- On Mac/Linux, open a terminal and navigate to where this repo is cloned.
+- Create a new environment with `conda env create -f environment.yml`
+- If environment setup or package installation fails, try
+  - updating conda with `conda update conda`
+  - updating pip with `conda upgrade pip`
+  - installing packages without specific version numbers
+- Activate environment with `conda activate drone-env`
