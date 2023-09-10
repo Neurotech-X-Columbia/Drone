@@ -1,12 +1,12 @@
+"""GUI for visualizing raw data and data after basic processing (one channel at a time)"""
 import tkinter as tk
 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from tkinter import ttk
 
-"""GUI for visualizing raw data and data after basic processing (one channel at a time)"""
-
 
 class Plotter(ttk.Frame):
+    """Displays plots and controls for visualizer"""
     def __init__(self, simulator, datalimit, channel_names, master=None):
         super().__init__(master)
         self.main_frame = tk.Frame(self.master, background="white")
