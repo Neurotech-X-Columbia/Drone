@@ -1,6 +1,7 @@
 import mne
 import numpy as np
 
+
 def detect_blinks(data):  # Accepts data and returns if at least one blink detected
     chan_names = ['FP1', 'FP2']
     sample_freq = 250

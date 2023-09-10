@@ -1,11 +1,11 @@
 import mne
 import numpy as np
+# import random
 
 from time import ctime
 from PipelineClasses import Headset, Processor
 from ProcessingFunctions import detect_blinks
 
-# import random
 
 def process_loop(proc, *hs_params):
     headset = Headset(*hs_params)
@@ -25,6 +25,7 @@ def process_loop(proc, *hs_params):
         except KeyboardInterrupt:
             headset.end_stream()
             print("Session end.")
+
 
 if __name__ == '__main__':
     # For both live and simulated

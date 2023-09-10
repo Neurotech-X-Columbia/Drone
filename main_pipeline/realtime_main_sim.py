@@ -1,11 +1,10 @@
 import mne
 import numpy as np
+# import random
 
 from time import ctime
 from PipelineClasses import SimulatedHeadset, Processor
 from ProcessingFunctions import detect_blinks
-
-# import random
 
 
 def process_loop(proc, *hs_params):
