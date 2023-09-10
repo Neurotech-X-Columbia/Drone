@@ -8,7 +8,7 @@ that control the flight of a drone, relaying those instructions in real time.
 - DJI Tello Drone
 
 ## Repository Structure
-**DataCollection** - contains code related to data acquisition for this project. See NeuroData repo for 
+**Data Collection** - contains code related to data acquisition for this project. See NeuroData repo for 
 general data collection code.\
 **Machine Learning and Signal Processing (ML-SP)** - contains code related to data manipulation
 for any part of the project, including pre-processing, post-processing, model training and storage, etc.\
