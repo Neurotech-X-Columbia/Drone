@@ -1,3 +1,4 @@
+"""Headset abstraction for use in main application"""
 from brainflow.board_shim import BoardShim, BrainFlowInputParams
 from os import path
 from time import sleep
